@@ -1,0 +1,14 @@
+armsvc.exe
+Acrobat.exe
+CCLeaner64.exe
+OfficeC2RClient.exe
+sqlservr.exe
+UNCServer.exe
+GameBarPresenceWriter.exe
+LSB.exe
+sqlwriter.exe
+winamp.exe
+acrotray.exe
+unsecapp.exe
+sqlceip.exe
+Locator.exe
