@@ -1,3 +1,8 @@
 iphlpsvc
 BEService
 RpcLocator
+Hamachi2Svc
+AppXSvc
+XblAuthManager
+wuauserv
+TimeBrokerSvc
