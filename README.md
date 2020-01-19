@@ -12,7 +12,7 @@ Processes and Servicess killer is a script where u add Process name in **Process
 
 A script to backup your Youtube Playlist via Link into a txt file(Only text,not download)
 
-## WebCam-OBject-Detector(WIP)
+## WebCam-Object-Detector(WIP)
 
 Using OpenCV-Python we can draw contours on moving objects! FramePerSecond,Smooth Contour,Stability and others are WorkInProgress
 
