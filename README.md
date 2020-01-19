@@ -2,7 +2,7 @@
 
 ## Bitcoin-Market-Analyser-Bot
 
-Every X Seconds(User can choose update rates) it prints Bitcon Price in USD
+Every X Seconds (User can choose update rates) it prints Bitcon Price in USD
 
 ## ProcessAndServicesKiller
 
