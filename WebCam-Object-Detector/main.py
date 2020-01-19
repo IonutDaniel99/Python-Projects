@@ -1,48 +1,54 @@
+
 import cv2
-import sys
-from time import sleep
+import time
+from datetime import datetime
 
-cascPath = "haarcascade_frontalface_alt.xml"
-#haarcascade_frontalface_alt.xml - 9/10
-# haarcascade_frontalface_alt.2xml - 8.10
-# Front_Face_Trained.xml 6/10
+static_back = None
 
-faceCascade = cv2.CascadeClassifier(cascPath)
-
-video_capture = cv2.VideoCapture(0)
-anterior = 0
+video = cv2.VideoCapture(0)
 
 while True:
-    if not video_capture.isOpened():
-        print('Unable to load camera.')
-        sleep(5)
-        pass
+    check, frame = video.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(gray, (21, 21), 0)
+    if static_back is None:
+        static_back = gray
+        continue
 
-    # Capture frame-by-frame
-    ret, frame = video_capture.read()
+    # Diff between Static BG and GausianBlur BG
+    diff_frame = cv2.absdiff(static_back, gray)
 
-    faces = faceCascade.detectMultiScale(
-        frame,
-        scaleFactor=1.1,
-        minNeighbors=5,
-        flags=cv2.CASCADE_SCALE_IMAGE,
-        minSize=(30, 30),
-    )
+    # If change in between static background and
+    # current frame is greater than 30 it will show white color
+    thresh_frame = cv2.threshold(diff_frame, 30, 255, cv2.THRESH_BINARY)[1]
+    thresh_frame = cv2.dilate(thresh_frame, None, iterations=0)
 
-    # Display FPS
+    # Finding contour of moving object
+    (cnts, _) = cv2.findContours(thresh_frame.copy(),
+                                 cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    for contour in cnts:
+        if cv2.contourArea(contour) < 10000:
+            continue
+        (x, y, w, h) = cv2.boundingRect(contour)
+        # Draw stroke around moving object
+        cv2.drawContours(frame, contour, -1, (0, 255, 0), 8)
+        # making green rectangle arround the moving object
+        # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
+
+    # Frames per Second
     timer = cv2.getTickCount()
-    fps = (cv2.getTickFrequency() / (cv2.getTickCount() - timer)/10000)
-    cv2.putText(img=frame, text="Fps : " + str(int(fps)), org=(10, 25), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=(
-        255, 255, 255), thickness=1)
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    fps = (cv2.getTickFrequency() /
+           (cv2.getTickCount() - timer)/10000)
+    cv2.putText(frame, "Fps : " + str(int(fps)), (10, 25),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 1)
 
-    # Display the resulting frame
-    cv2.imshow('Video', frame)
+    # Displaying image
+    cv2.imshow("Threshold Frame", thresh_frame)
+    cv2.imshow("Color Frame", frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1)
+    if key == ord('q'):
         break
-
-
-video_capture.release()
+video.release()
 cv2.destroyAllWindows()
