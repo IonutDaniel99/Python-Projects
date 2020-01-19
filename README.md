@@ -12,9 +12,9 @@ Processes and Servicess killer is a script where u add Process name in **Process
 
 A script to backup your Youtube Playlist via Link into a txt file(Only text,not download)
 
-## WebCam-Face-Detection(WIP)
+## WebCam-OBject-Detector(WIP)
 
-Using OpenCV-Python and trained model data from internet i will try to extend features like displaying Frame Per Seconds,Smooth Recognition,Others
+Using OpenCV-Python we can draw contours on moving objects! FramePerSecond,Smooth Contour,Stability and others are WorkInProgress
 
 ## Wireless-Netowrk-List
 
