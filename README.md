@@ -8,6 +8,10 @@ Every X Seconds (User can choose update rates) it prints Bitcon Price in USD
 
 Processes and Servicess killer is a script where u add Process name in **ProcessToKill.exe** to kill them and Service name in **ServicesToKill.exe** to stop their running in background
 
+## RGB-Percent-From-Image(WIP)
+
+RGB or Red-Green-Blue its a color model used to produce an array if colors. This script create a chart with each RGB value from a image
+
 ## YouTube-PlayList-Backup
 
 A script to backup your Youtube Playlist via Link into a txt file(Only text,not download)
