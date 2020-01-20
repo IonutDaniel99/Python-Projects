@@ -18,7 +18,7 @@ Using OpenCV-Python we can draw contours on moving objects! FramePerSecond,Smoot
 
 ## WegPage-Download-All-Images
 
-Download all HTML images '<img>' tags from link.Works only on static webpages. Other Webpages like InfiniteScroll or Expanding Page request data everytime you make an action!
+Download all HTML images 'img' tags from link.Works only on static webpages. Other Webpages like InfiniteScroll or Expanding Page request data everytime you make an action!
 
 ## Wireless-Netowrk-List
 
