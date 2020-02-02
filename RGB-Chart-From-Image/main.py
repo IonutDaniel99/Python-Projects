@@ -50,16 +50,21 @@ def main():
 
     performance_pixels = [red, green, blue, yellow, white, black, other]
     performance_percent = [red_percent, green_percent,
-                           blue_percent, yellow_percent, white_percent, black_percent, other_percent]
+                           blue_percent, yellow_percent,
+                           white_percent, black_percent,
+                           other_percent]
 
-    plt_pixels.bar(y_pos, performance_pixels, align='center', alpha=0.5)
+    plt_pixels.bar(y_pos, performance_pixels, align='center', alpha=1, color=[
+                   'red', 'green', 'blue', 'yellow', '#ffffcc', 'black', 'gray'])
+
     plt_pixels.xticks(y_pos, objects)
     plt_pixels.ylabel('Number Of Pixels')
     plt_pixels.title('Colors')
 
     plt_pixels.show()
 
-    plt_percent.bar(y_pos, performance_percent, align='center', alpha=0.5)
+    plt_percent.bar(y_pos, performance_percent, align='center', alpha=1, color=[
+        'red', 'green', 'blue', 'yellow', '#ffffcc', 'black', 'gray'])
     plt_percent.xticks(y_pos, objects)
     plt_percent.ylabel('Percent Of Colour')
     plt_percent.title('Colors')
