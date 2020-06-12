@@ -1,6 +1,6 @@
 # Python-Projects
 
-## Bitcoin-Market-Analyser-Bot
+## Bitcoin-Market-Analyser-Bot (Deprecated)
 
 Every X Seconds (User can choose update rates) it prints Bitcon Price in USD
 
@@ -32,6 +32,6 @@ Shows nearby Wirelesses Name,Mac,Signal,Authentification Protection,Others
 
 This one open a selenium browser on web.whatsapp.com page , search for notifications and choose predefined name or groups to send messages
 
-## YouTube-PlayList-Backup
+## YouTube-PlayList-Backup (Deprecated)
 
 A script to backup your Youtube Playlist via Link into a txt file(Only text,not download)
